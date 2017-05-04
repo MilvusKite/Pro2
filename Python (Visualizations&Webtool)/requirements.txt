@@ -1,0 +1,16 @@
+dj-database-url==0.4.1
+Django==1.11
+django-allauth==0.28.0
+gunicorn==19.6.0
+numpy==1.11.2
+oauthlib==2.0.1
+pandas==0.19.0
+plotly==1.12.9
+python-dateutil==2.6.0
+python-openid==2.2.5
+pytz==2017.2
+requests==2.13.0
+requests-oauthlib==0.7.0
+six==1.10.0
+whitenoise==3.2.2
+# psycopg2==2.5.4 #This is for heroku, dont install it locally

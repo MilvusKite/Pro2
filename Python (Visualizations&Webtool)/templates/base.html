@@ -1,0 +1,108 @@
+<!-- jQuery loading from google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}PRO2: Proteostasis Profiler{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'AllStyles.css' %}" />
+    {% block style %}{% endblock %}
+</head>
+<body>
+
+    <nav class="navbar navbar-light navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false"
+                    aria-controls="navbar" style="border-color: #336699; color: #336699"> {% comment %} This is button shown as collaped navbar in small screens {% endcomment %}
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+          <a href="/"><img src={% static 'imgs/Pro2NavbarLogo.png' %} width=110px></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="{% if nbar == 'HOME' %}active{% endif %}"><a href="/">Home</a></li>
+          <li class="{% if nbar == 'DASH' %}active{% endif %}"><a href="/dashmain/">Dashboard</a></li>
+          {% comment %}
+          This active class assignments doesn't work! don't know why, quick and dirty I could add active class to css
+          but I haven't, for now active tab is not highlighted in navbar
+          {% endcomment %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if not user.is_authenticated %}
+            <li><a href="/accounts/signup/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/accounts/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% else %}
+            <li><a href="/help/"><span class="glyphicon glyphicon-book"></span> Help</a></li>
+            <li><a href="/accounts/password/change/"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
+            <li><a href="/accounts/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          {% endif %}
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+    <p>
+        <br>
+        <br>
+    </p>
+
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+        <br>
+        <div class="container" style="background-color: transparent;width: 100%">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="row">
+                                <a href="https://twitter.com/proteostasys" class="twitter-follow-button" data-show-count="false">Follow @proteostasys</a>
+                                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                            <div class="row">
+                                <a href="/about/" class="footerText"><B>About Us</B></a>
+                            </div>
+                            <div class="row"><a href="/help/" class="footerText"><B>Help & Tutorial</B></a></div>
+                            <div class="row"><a href="/privacy/" class="footerText"><B>Privacy Policy</B></a></div>
+                            <div class="row"><a href="/terms/" class="footerText"><B>Terms of Use</B></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <h6 align="center"><span class="glyphicon glyphicon-copyright-mark"></span>2016-{% now "Y" %}. All rights reserved.</h6>
+                </div>
+                <div class="col-sm-4" align="center">
+                    <div class="row"></div>
+                        <div class="col-sm-10 col-sm-offset-1" align="center">
+                            <a href="http://www.combine.rwth-aachen.de">
+                                <img class="imgFooter" src={% static 'imgs/JRC.png' %}>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+</html>

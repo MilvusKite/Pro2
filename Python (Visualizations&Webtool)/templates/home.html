@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+  <div class="container" style="background-color: #398984;width: 100%">
+    <div class="jumbotron" style="background-color: #398984;color: white">
+        <h1 style="text-align: center"><img src={% static 'imgs/HomeHeader.png' %} width=80%></h1>
+        <hr style="width: 80%;color: white">
+        <h4 style="text-align: center">Understanding Proteostasis ... </h4></div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{% static 'imgs/HomeLogo.png' %}" style="width: 50%;display: block;margin: auto;">
+                <a href="/dashmain" style="position:absolute; bottom: 0%; left: 25%; width:50%; height: 100%;opacity: 1">
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <p>
+                <a href="/dashmain" class="btn btn-success" role="button"
+                   style="width: 80%;display: block;margin-right: auto;margin-left: auto">
+                    <strong>Click here</strong> to start
+                </a>
+            </p>
+        </div>
+    </div>
+  </div>
+
+  <div class="jumbotron" style="background-color: transparent;align-self: center; width: 80%; margin-left: auto;margin-right: auto;">
+      <div class="row">
+          <div class="col-md-12">
+              <p align="justify">
+                  Proteome integrity is safeguarded by the Proteostasis Network (PN), an intricately regulated network
+                  of conserved processes that have evolved to regulate native protein structure, localization,
+                  function and turnover in order to maintain proteome balance. Proteostasis imbalances, deficiencies
+                  and collapse are increasingly implicated in a range of human disorders. Pro2 represents a novel
+                  integrated analytical platform enabling the intuitive exploration of the characteristics and
+                  extent of PN deregulation in human diseases. Pro2 unites tools for the assessment of gene
+                  expression changes of PN functional processes with interactive visualization applications,
+                  such as heat maps, polar plots, and interactome-guided 3D topographic landscapes (‘topologies’).
+                  The provided ontology covers all major PN processes ordered by more top-level down to detailed
+                  functional groups, such as the human chaperome and its changes across 22 solid cancers represented
+                  in The Cancer Genome Atlas (TCGA), as described in
+                  <a href="http://biorxiv.org/content/early/2017/03/29/122044" class="alert-link">this study</a>.
+                  Furthermore, Pro2 accepts upload and analysis of custom gene expression data for the analysis
+                  of PN alterations in user-specific sample data.
+              </p>
+          </div>
+      </div>
+  </div>
+
+
+{% endblock %}

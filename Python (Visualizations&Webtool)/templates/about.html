@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <style>
+    .myImg {
+        border-radius: 60%;
+        /* -webkit-filter: blur(8px); /* Chrome, Safari, Opera */
+        /* filter: blur(8px); */
+        width: 200px;
+        height: auto;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="myDesc">
+        <h1>Team</h1>
+        <hr style="border-color: #2e484c">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-1">
+                <span class="headerName">Marc Brehme Ph.D.  </span><span class="headerContribution">Overall research and design</span><br />
+                <a class="meiMailto" href="mailto:brehme@combine.rwth-aachen.de?Subject=About%20Pro2%20Webtool" target="_top">brehme@combine.rwth-aachen.de</a>
+            </div>
+            <div class="col-sm-2 col-sm-offset-1">
+                <img class="myImg" src="http://i.imgur.com/EKET7Rk.jpg">
+            </div>
+        </div>
+        <hr style="border: 0;
+                    height: 1px;
+                    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-1">
+                <span class="headerName">Ali H. Esfahani  </span><span class="headerContribution">Design and Development</span><br />
+                <a class="meiMailto" href="mailto:hadizadeh@combine.rwth-aachen.de?Subject=About%20Pro2%20Webtool" target="_top">hadizadeh@combine.rwth-aachen.de</a>
+            </div>
+            <div class="col-sm-2 col-sm-offset-1">
+                <img class="myImg" src="http://i.imgur.com/GeVkJLC.jpg?1" style="-webkit-transform: rotate(10deg); transform: rotate(10deg);">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

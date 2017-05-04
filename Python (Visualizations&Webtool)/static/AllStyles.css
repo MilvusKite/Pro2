@@ -1,0 +1,87 @@
+.footerText {
+    color: #336699;
+}
+.imgFooter {
+    align:center;
+    width:100%;
+    position: relative;
+    max-width: 350px;
+}
+.navbar-fixed-top {
+    background-color: white;
+    border-bottom-color: #336699;
+    border-bottom-width: thick;
+}
+.imgWrap {
+    position: static;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    margin: 5px;
+    max-width: 200px;
+    min-width: 100px;
+}
+.myImgInactive {
+    position: static;
+    border-radius: 60%;
+    max-width: 100%;
+    height: auto;
+    width: auto \9; /* ie8 */
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.myImg {
+    position: static;
+    border-radius: 60%;
+    /* -webkit-filter: blur(8px); /* Chrome, Safari, Opera */
+    /* filter: blur(8px); */
+    max-width: 100%;
+    height: auto;
+    width: auto \9; /* ie8 */
+}
+.myImg:hover {
+    /* -webkit-filter: blur(0px); /* Chrome, Safari, Opera */
+    /* filter: blur(0px); */
+    transition: all 0.7s ease;
+    /*border-radius: 0%; */
+    box-shadow: 0px 15px 20px 10px rgba(0, 140, 186, 1);
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.dashHeader {
+    color: #1a5952;
+    min-width: 300px /* assigning min prevents headers to collapse on resize */
+}
+.myImgActivated {
+    position: static;
+    border-radius: 60%;
+    /* -webkit-filter: blur(8px); /* Chrome, Safari, Opera */
+    /* filter: blur(8px); */
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    box-shadow: 0 10px 30px 5px rgba(0, 140, 186, 1);
+}
+a:link {color: rgb(3, 92, 157)
+}
+.myDesc {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: left;
+}
+.meiMailto {
+    color: black;
+    padding-left: 0%;
+}
+.headerName {
+    font-size: 22px;
+    font-weight: bold;
+}
+.headerContribution {
+    font-size: 18px;
+    font-weight: lighter;
+}

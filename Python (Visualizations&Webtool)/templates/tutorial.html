@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <style>
+    a:link {color: rgb(3, 92, 157)
+    }
+    {% if ZOOM == 'in' %}
+    .thumbnail {
+        width: 304px;
+        height: 274px;
+    }
+    {% else %}
+    .thumbnail {
+        width: 104px;
+        height: 104px;
+    }
+    {% endif %}
+    .imgWrap {
+        position: relative;
+        width: 304px;
+        margin: 5px;
+
+    }
+    .myImg {
+        border-radius: 60%;
+        /* -webkit-filter: blur(8px); /* Chrome, Safari, Opera */
+        /* filter: blur(8px); */
+        width: 200px;
+        height: auto;
+    }
+    .myImg:hover {
+        /* -webkit-filter: blur(0px); /* Chrome, Safari, Opera */
+        /* filter: blur(0px); */
+        transition:all 0.7s ease;
+        /* border-radius: 0%; */
+        box-shadow: 0 0 20px 1px rgba(0, 140, 186, 1);
+    }
+    .myDesc {
+        padding: 15px;
+        text-align: center;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron" style="background-color: transparent">
+
+
+    <h1 align="center">Choose Tissue</h1>
+
+
+    </div>
+
+{% endblock %}

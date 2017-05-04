@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="myDesc">
+        <h1>Help and support</h1>
+        <hr style="border-color: #2e484c">
+        <p style="text-align: justify">In case of any questions, errors or bug reports regarding this web tool, contact
+        <a class="meiMailto"
+           href="mailto:hadizadeh@combine.rwth-aachen.de?Subject=Pro2%20Webtool%20Support" target="_top">
+            this person</a>.</p>
+        <br>
+        <br>
+        <br>
+        <h1>Getting started</h1>
+        <hr style="border-color: #2e484c">
+        <p style="text-align: justify">Welcome to Proteostasis Profiler web tool. In this section we briefly
+            explain how you can use this tool.<br>
+            For security reasons, only authenticated users can use this tool. so in case you haven't already, you can
+            use the links on the top left corner of the screen to "sign up" and "log in". Signing up is free for any
+            person with a valid email address.<br>
+            After signing in, you are directed to the main dashboard screen. In the dashboard you go through four steps
+            to choose how you want to use the tool.
+            <ol type="1">
+                <li style="text-align: justify">In step one you choose in what level of details you want to
+                analysis the data. "PN" or Proteostasis Network analyses the data in a general level, with only having six subgroups
+                considered when studying the whole PN, while "Chaperome" goes into more detailed subgroups existing
+                in the Folding.</li>
+            </ol>
+            <ol type="2">
+                <li style="text-align: justify">In step two you choose in what disease group you want to analyze
+                proteostasis. For now the available options are "Cancer(TCGA)" and "Neurodegenerative" diseases.</li>
+            </ol>
+            <ol type="3">
+                <li style="text-align: justify"> In step three you can choose the tissues (or diseases) to analyse.
+                For choosing the tissues you first have to click on "Disease Selector Wizard", a new window will open
+                with all the available tissue in the disease group you chose in step 2. You can choose one or more
+                tissues. Clicking the "go to the next step" button will send you to step 4. Remember that if you want
+                to compare proteostasis in few tissues or diseases, select all of them in this step.</li>
+            </ol>
+            <ol type="4">
+                <li style="text-align: justify">In step 4, you choose how you want the results to be shown. there are
+                four options:
+                    <ol type="a"><li style="text-align: justify">Heatmap plot: shows the results of "GSA" or
+                        "Gene Set Analysis" on the chosen tissues in the last step (More info about the method in
+                        <a href="http://biorxiv.org/content/early/2017/03/29/122044" class="alert-link">this study</a>).
+                        If less than 3 tissues were chosen,all the available tissues are shown.</li></ol>
+                    <ol type="b"><li style="text-align: justify">Polar map: shows M-score results on the chosen
+                    tissues (More info about the method in
+                        <a href="http://biorxiv.org/content/early/2017/03/29/122044" class="alert-link">this study</a>).
+                    If more than one tissue is chosen, each tissue are plotted on one Polar plot individually.</li></ol>
+                    <ol type="c"><li style="text-align: justify">Meta-interactome: shows M-score results on the chosen
+                    tissues, mapped on Meta-interactome of the Protein Protein interactions network.
+                    (More info about the method in
+                        <a href="http://biorxiv.org/content/early/2017/03/29/122044" class="alert-link">this study</a>).
+                    If more than one tissue is chosen, each tissue are plotted on one Meta-interactome plot individually.</li></ol>
+                    <ol type="d"><li style="text-align: justify">3D topography: shows M-score results on the chosen
+                    tissues, mapped on Meta-interactome of the Protein Protein interactions network in 3D space.
+                    (More info about the method in
+                        <a href="http://biorxiv.org/content/early/2017/03/29/122044" class="alert-link">this study</a>).
+                    If more than one tissue is chosen, each tissue are plotted on one 3D topographic plot individually.</li></ol>
+                </li>
+            </ol>
+            After passing all four steps, the results are shown. You can use the "control bar" on top of the screen to
+            change the "Plot Type" or change the tissues shown using the "Disease Selector Wizard".
+        </p>
+
+    </div>
+
+{% endblock %}

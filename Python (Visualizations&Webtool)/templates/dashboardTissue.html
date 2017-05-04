@@ -1,0 +1,481 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <style>
+        a:link {
+            color: rgb(3, 92, 157)
+        }
+
+        .imgWrap {
+            position: relative;
+            width: 104px;
+            margin: 5px;
+
+        }
+
+        .centered {
+            position: absolute;
+            left: 0;
+            top: -20%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: black;
+        }
+
+        .myImg {
+            border-radius: 60%;
+            /* -webkit-filter: blur(8px); /* Chrome, Safari, Opera */
+            /* filter: blur(8px); */
+            max-width: 100%;
+            height: auto;
+            width: auto \9; /* ie8 */
+            padding: 15px;
+        }
+
+        .myImg:hover {
+            /* -webkit-filter: blur(0px); /* Chrome, Safari, Opera */
+            /* filter: blur(0px); */
+            transition: all 0.7s ease;
+            /* border-radius: 0%; */
+            box-shadow: 0 0 20px 1px rgba(0, 140, 186, 1);
+        }
+
+        .myImgActivated {
+            border-radius: 60%;
+            /* -webkit-filter: blur(8px); /* Chrome, Safari, Opera */
+            /* filter: blur(8px); */
+            max-width: 100%;
+            height: auto;
+            width: auto \9; /* ie8 */
+            padding: 15px;
+            box-shadow: 0 0 20px 1px rgba(0, 140, 186, 1);
+        }
+
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <ol class="breadcrumb">
+        <li><a href="/dashmain/">Dashboard Main</a></li>
+        <li><a href="/dashmain/{{ LEVEL }}/">{{ LEVEL }}</a></li>
+        <li class="active">{{ DISEASE }}</li>
+    </ol>
+
+    <h3 align="center">Choose tissue(s) then click the "Go to the next step" button</h3>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% if DISEASE == "TCGA" %}
+
+        <div class="row">
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">BLCA</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='BladderUrothelialCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/64FMpiE.png" data-toggle="tooltip"
+                               title="Bladder Urothelial Carcinoma"
+                               class={% if 'BladderUrothelialCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Bladder">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">BRCA</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='BreastInvasiveCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/cLBpTQ2.png" data-toggle="tooltip"
+                               title="Breast Invasive Carcinoma"
+                               class={% if 'BreastInvasiveCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Breast">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">CESC</div>
+                        <input type='hidden' id='tissue' name='TissueName'
+                               value='CervicalSquamousCellCarcinomaAndEndocervicalAdenocarcinoma'>
+                        <input type="image" src="http://i.imgur.com/BCYvXjp.png" data-toggle="tooltip"
+                               title="Cervical Squamous Cell Carcinoma And Endocervical Adenocarcinoma"
+                               class={% if 'CervicalSquamousCellCarcinomaAndEndocervicalAdenocarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Cervix">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">CHOL</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='CholangioCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/yGQVRH6.png" data-toggle="tooltip"
+                               title="Cholangio Carcinoma"
+                               class={% if 'CholangioCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="gallbladder">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">ESCA</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='EsophagealCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/Y9mR0Qm.png" data-toggle="tooltip"
+                               title="Esophageal Carcinoma"
+                               class={% if 'EsophagealCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Esophagus">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">GBM</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='GlioblastomaMultiforme'>
+                        <input type="image" src="http://i.imgur.com/UYE8RAT.png" data-toggle="tooltip"
+                               title="Glioblastoma Multiforme"
+                               class={% if 'GlioblastomaMultiforme' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Glioblastoma">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">HNSC</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='HeadAndNeckSquamousCellCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/FUI56Sk.png" data-toggle="tooltip"
+                               title="Head And Neck Squamous Cell Carcinoma"
+                               class={% if 'HeadAndNeckSquamousCellCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Head">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">KICH</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='KidneyChromophobe'>
+                        <input type="image" src="http://i.imgur.com/w4sZ5mi.png" data-toggle="tooltip"
+                               title="Kidney Chromophobe"
+                               class={% if 'KidneyChromophobe' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Kidney">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">KIRC</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='KidneyRenalClearCellCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/w4sZ5mi.png" data-toggle="tooltip"
+                               title="Kidney Renal Clear Cell Carcinoma"
+                               class={% if 'KidneyRenalClearCellCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Kidney">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">KIRP</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='KidneyRenalPapillaryCellCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/w4sZ5mi.png" data-toggle="tooltip"
+                               title="Kidney Renal Papillary Cell Carcinoma"
+                               class={% if 'KidneyRenalPapillaryCellCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Kidney">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">LIHC</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='LiverHepatocellularCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/o3PbO7f.png" data-toggle="tooltip"
+                               title="Liver Hepatocellular Carcinoma"
+                               class={% if 'LiverHepatocellularCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Liver">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">LUAD</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='LungAdenocarcinoma'>
+                        <input type="image" src="http://i.imgur.com/iANPlzu.png" data-toggle="tooltip"
+                               title="Lung Adenocarcinoma"
+                               class={% if 'LungAdenocarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Lung">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">LUSC</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='LungSquamousCellCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/iANPlzu.png" data-toggle="tooltip"
+                               title="Lung Squamous Cell Carcinoma"
+                               class={% if 'LungSquamousCellCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Lung">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">PAAD</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='PancreaticAdenocarcinoma'>
+                        <input type="image" src="http://i.imgur.com/GXuJAul.png" data-toggle="tooltip"
+                               title="Pancreatic Adenocarcinoma"
+                               class={% if 'PancreaticAdenocarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Pancreas">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">PCPG</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='PheochromocytomaAndParaganglioma'>
+                        <input type="image" src="http://i.imgur.com/w4sZ5mi.png" data-toggle="tooltip"
+                               title="Pheochromocytoma And Paraganglioma"
+                               class={% if 'PheochromocytomaAndParaganglioma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Kidney">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">PRAD</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='ProstateAdenocarcinoma'>
+                        <input type="image" src="http://i.imgur.com/QaCwhG0.png" data-toggle="tooltip"
+                               title="Prostate Adenocarcinoma"
+                               class={% if 'ProstateAdenocarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Prostate">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">SARC</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='Sarcoma'>
+                        <input type="image" src="http://i.imgur.com/2NJ9Qe9.png" data-toggle="tooltip" title="Sarcoma"
+                               class={% if 'Sarcoma' in AllTissueNames %}"myImgActivated"{% else %}"myImg"{% endif %}
+                        name="submit" alt="Body">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">SKCM</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='SkinCutaneousMelanoma'>
+                        <input type="image" src="http://i.imgur.com/eo8h3cg.png" data-toggle="tooltip"
+                               title="Skin Cutaneous Melanoma"
+                               class={% if 'SkinCutaneousMelanoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Skin">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">STAD</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='StomachAdenocarcinoma'>
+                        <input type="image" src="http://i.imgur.com/HiLO5jw.png" data-toggle="tooltip"
+                               title="Stomach Adenocarcinoma"
+                               class={% if 'StomachAdenocarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Stomach">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">THCA</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='ThyroidCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/NpWcz6f.png" data-toggle="tooltip"
+                               title="Thyroid Carcinoma"
+                               class={% if 'ThyroidCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Thyroid">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">THYM</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='Thymoma'>
+                        <input type="image" src="http://i.imgur.com/mGXAuDY.png" data-toggle="tooltip" title="Thymoma"
+                               class={% if 'Thymoma' in AllTissueNames %}"myImgActivated"{% else %}"myImg"{% endif %}
+                        name="submit" alt="Chest">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <form action="" method="post">
+                    <div class="imgWrap">
+                        <div class="centered">UCEC</div>
+                        <input type='hidden' id='tissue' name='TissueName' value='UterineCorpusEndometrialCarcinoma'>
+                        <input type="image" src="http://i.imgur.com/BCYvXjp.png" data-toggle="tooltip"
+                               title="Uterine Corpus Endometrial Carcinoma"
+                               class={% if 'UterineCorpusEndometrialCarcinoma' in AllTissueNames %}"myImgActivated"{% else %}
+                                   "myImg"{% endif %} name="submit" alt="Cervix">
+                        {% csrf_token %}
+                        </input>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    {% elif DISEASE == "neuro" %}
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <form action="" method="post">
+                            <div class="imgWrap">
+                                <div class="centered">AD</div>
+                                <input type='hidden' id='tissue' name='TissueName' value='AlzheimerDisease'>
+                                <input type="image" src="http://i.imgur.com/UYE8RAT.png" data-toggle="tooltip"
+                                       title="Alzheimer's Disease"
+                                       class={% if 'AlzheimerDisease' in AllTissueNames %}"myImgActivated"{% else %}
+                                           "myImg"{% endif %} name="submit" alt="Brain">
+                                {% csrf_token %}
+                                </input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-4">
+                        <form action="" method="post">
+                            <div class="imgWrap">
+                                <div class="centered">HD</div>
+                                <input type='hidden' id='tissue' name='TissueName' value='HuntingtonDisease'>
+                                <input type="image" src="http://i.imgur.com/UYE8RAT.png" data-toggle="tooltip"
+                                       title="Huntington's Disease"
+                                       class={% if 'HuntingtonDisease' in AllTissueNames %}"myImgActivated"{% else %}
+                                           "myImg"{% endif %} name="submit" alt="Brain">
+                                {% csrf_token %}
+                                </input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-4">
+                        <form action="" method="post">
+                            <div class="imgWrap">
+                                <div class="centered">PD</div>
+                                <input type='hidden' id='tissue' name='TissueName' value='ParkinsonDisease'>
+                                <input type="image" src="http://i.imgur.com/UYE8RAT.png" data-toggle="tooltip"
+                                       title="Parkinson's Disease"
+                                       class={% if 'ParkinsonDisease' in AllTissueNames %}"myImgActivated"{% else %}
+                                           "myImg"{% endif %} name="submit" alt="Brain">
+                                {% csrf_token %}
+                                </input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <p>ERROR298: Disease not found in the database!</p>
+    {% endif %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <a href={% if NEXT %}
+            "/dashmain/{{ LEVEL }}/{{ DISEASE }}/multiplotter~{{ PLOTTYPE }}/"
+        {% else %}
+            "/dashmain/{{ LEVEL }}/{{ DISEASE }}/multiplotter/"
+        {% endif %}
+        class="btn btn-success" role="button" style="width: 50%;display: block;margin-right: auto;margin-left: auto">
+        <strong style="color: white">Go to next step...</strong>
+        </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div style="font-size: smaller">Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+        from
+        <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
+        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0
+            BY</a></div>
+
+{% endblock %}
